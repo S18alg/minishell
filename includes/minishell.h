@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/02/25 17:20:35 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/05 18:39:42 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,37 @@
 
 # include "libft.h"
 
+/*!
+ *	User interface
+ */
 void	print_prompt(void);
 
+/*!
+ *	Cmd parsing
+ */
 int		interpreter(char **env);
-char	*parse(char *cmd);
+char	**parse(char *cmd);
 
-int		builtins(char *cmd, char **env);
-void	runcmd(char *cmd, char **env);
+/*!
+ *	Execution
+ */
+int		builtins(char const *cmd, char **env);
+void	runcmd(char const *cmd, char **env);
+
+/*!
+ *	History management
+ *		Macro :
+ *	- definition of the possible use of the function
+ *		Use are describe in the history.c files
+ *		Function :
+ *	- History : general management
+ */
+# define H_RESET	1
+# define H_SAVE		2
+# define H_UP		4
+# define H_DOWN		8
+# define H_SEARCH	16
+
+char	*history(char const *line, int action);
 
 #endif
