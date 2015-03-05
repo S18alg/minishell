@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/02/25 17:43:56 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/05 18:40:18 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	**st_initopt()
 	return (new);
 }
 
-void		runcmd(char *cmd, char **env)
+void		runcmd(char const *cmd, char **env)
 {
 	char	*bin;
 	char	**opt;
