@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    sprint                                             :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/03/05 15:37:48 by sle-guil          #+#    #+#              #
-#    Updated: 2015/03/05 15:39:27 by sle-guil         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 	Goal and sprint
 		MINISHELL - 1
 
@@ -36,13 +24,17 @@ Execute the first commande into the list with proper argument.
 	Step 5 : Error management
 Detect if the commande asked is valide and send error message if not.
 
-		Anexe : Builtins
-	- (Exit)
-	- env
-	- setenv
-	- unsetenv
-	- cd
-	- pwd
+	Annexe :
+Builtins function
+- (Exit)
+- env
+- setenv
+- unsetenv
+- cd
+- pwd
+
+Doxygene Header, Footer and style :
+doxygen -w head.html foot.html style.html doc
 
 		MINISHELL - 2
 		MINISHELL - 3
