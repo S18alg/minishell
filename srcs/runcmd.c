@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/05 18:40:18 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/07 13:21:42 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	**st_initopt()
 
 	new = malloc(sizeof(char*) * 4);
 	*new = ft_strdup("");
-	*(new + 1) = ft_strdup("-la ~");
+	*(new + 1) = ft_strdup("-la");
 	*(new + 2) = NULL;
 	*(new + 3) = NULL;
 	return (new);

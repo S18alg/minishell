@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:47:56 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/02/25 14:19:39 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/07 13:16:48 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 int		main(int ac, char **av, char **env)
 {
 	int		i;
+	//char	**loc_env;
 
 	(void)av;
+	//loc_env = copy_env(env);
 	i = 1;
 	if (ac == 1)
 	{
@@ -28,7 +30,7 @@ int		main(int ac, char **av, char **env)
 	{
 		while (i < ac)
 			i++;
-			// script(av[i++]);
+			// script(av[i++], loc_env, env);
 	}
 	return (0);
 }
