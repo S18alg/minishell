@@ -6,7 +6,7 @@
 #    By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/05 15:37:48 by sle-guil          #+#    #+#              #
-#    Updated: 2015/03/05 15:39:27 by sle-guil         ###   ########.fr        #
+#    Updated: 2015/03/07 12:19:03 by sle-guil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ Detect if the commande asked is valide and send error message if not.
 	- env
 	- setenv
 	- unsetenv
+	- resetenv
 	- cd
 	- pwd
 
