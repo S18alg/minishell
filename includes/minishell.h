@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/05 18:39:42 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/07 13:15:32 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
  *	User interface
  */
 void	print_prompt(void);
+char	**copy_env(char **env);
 
 /*!
  *	Cmd parsing
