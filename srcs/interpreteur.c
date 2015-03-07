@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/07 14:59:58 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/07 15:09:18 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		interpreter(char **env)
 	{
 		history(line, H_SAVE);
 		command = parse(line);
-		while (command)
+		while (command && ret)
 		{
 			// execution block
 			if (st_isbuiltins(*command))
