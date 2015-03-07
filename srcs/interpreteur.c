@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/05 18:10:32 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/07 14:59:58 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  *	@brief: This function get a commande typed by the user and execute it
  */
 
-static int	st_isbuiltins(char *cmd)
+static int	st_isbuiltins(char const *cmd)
 {
 	int		ret;
 
@@ -50,7 +50,6 @@ int		interpreter(char **env)
 			free(*command);
 			command++;
 		}
-		free(command);
 	}
 	return (ret);
 }
