@@ -6,7 +6,7 @@
 #    By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/05 11:53:15 by sle-guil          #+#    #+#              #
-#    Updated: 2015/03/05 18:40:51 by sle-guil         ###   ########.fr        #
+#    Updated: 2015/03/07 12:39:28 by sle-guil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ HEADER = ./includes
 SRCS_DIR = ./srcs/
 LIBFT = ./libft/libft.a
 
-SRCS_NAME =	main.c		print_prompt.c	parse.c	interpreteur.c \
-			builtins.c	runcmd.c		history.c
+SRCS_NAME =	main.c		print_prompt.c	parse.c		interpreteur.c \
+			builtins.c	runcmd.c		history.c	copy_env.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS = $(SRCS:.c=.o)

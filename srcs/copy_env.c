@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   copy_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/21 15:47:56 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/07 13:16:48 by sle-guil         ###   ########.fr       */
+/*   Created: 2015/03/07 12:24:29 by sle-guil          #+#    #+#             */
+/*   Updated: 2015/03/07 13:15:45 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int		main(int ac, char **av, char **env)
+static size_t	st_len(char **len)
 {
-	int		i;
-	//char	**loc_env;
+	size_t	ret;
 
-	(void)av;
-	//loc_env = copy_env(env);
-	i = 1;
-	if (ac == 1)
+	ret = 0;
+	while (len && *len)
 	{
-		print_prompt();
-		while (interpreter(env) > 0)
-			print_prompt();
+		len++;
+		ret++;
 	}
-	else
+	return (ret);
+}
+
+char			**copy_env(char **env)
+{
+	char	**new;
+	size_t	i;
+
+	i = 0;
+	new = malloc(sizeof(char*) * st_len(env) + 1);
+	while (env + i && env[i])
 	{
-		while (i < ac)
-			i++;
-			// script(av[i++], loc_env, env);
+		new[i] = ft_strdup(env[i]);
+		i++;
 	}
-	return (0);
+	new[i] = NULL;
+	return (new);
 }
