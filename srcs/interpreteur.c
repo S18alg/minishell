@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/07 15:09:18 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/09 14:06:45 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,20 @@ static int	st_isbuiltins(char const *cmd)
 		ret = 1;
 	return (ret);
 }
-
 int		interpreter(char **env)
 {
 	char	*line;
 	char	**command;
 	int		ret;
 
-	(void)env;
 	ret = 1;
 	line = NULL;
 	if ((ret = get_next_line(0, &line)) > 0)
 	{
 		history(line, H_SAVE);
 		command = parse(line);
-		while (command && ret)
+		while (command && *command && ret)
 		{
-			// execution block
 			if (st_isbuiltins(*command))
 				ret = builtins(*command, env);
 			else
@@ -50,6 +47,7 @@ int		interpreter(char **env)
 			free(*command);
 			command++;
 		}
+		//free(command);
 	}
 	return (ret);
 }

@@ -6,27 +6,27 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/07 14:57:42 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/09 19:05:12 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /*!
- *	name : runcmd
- *	brief : This function run the cmd into fork after getting the rigth path
+ *	@name:	runcmd
+ *	@brief:	This function run the cmd into fork after getting the rigth path
  */
-
-//	Testing function...
-static char	**st_initopt(char const *cmd, char **env)
+static char	**st_initopt(char const *cmd, char *dirpath)
 {
-	char **new;
+	char	**new;
+	char	*path;
 
-	(void)env;
-	new = malloc(sizeof(char*) * 4);
-	*new = ft_strjoin("/bin/", cmd);
-	*(new + 1) = ft_strdup("-la");
-	*(new + 2) = NULL;
+	if (!dirpath)
+		return (NULL);
+	// Need to manage "string"
+	path = get_pathcmd(cmd, dirpath);
+	new = ft_strsplit(cmd, ' ');
+	free(dirpath);
 	return (new);
 }
 
@@ -43,18 +43,26 @@ static void	st_free(char **cmd)
 	free(cmd);
 }
 
+// Thing to add here...
+// alias come here
+// ~ = Home
+// Better do a function...
 void		runcmd(char const *cmd, char **env)
 {
 	char	**opt;
+	char	*path;
 	pid_t	father;
 
+	opt = st_initopt(cmd, env_getpath(env));
 	father = fork();
 	if (!father)
+		if (opt)
+			execve(*opt, opt, env);
+		else
+			er_notfound(cmd);
+	else
 	{
-		opt = st_initopt(cmd, env);
-		execve(*opt, opt, NULL);
+		wait(NULL);
 		st_free(opt);
 	}
-	else
-		wait(NULL);
 }
