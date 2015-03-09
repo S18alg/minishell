@@ -6,7 +6,7 @@
 #    By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/05 11:53:15 by sle-guil          #+#    #+#              #
-#    Updated: 2015/03/09 12:57:15 by sle-guil         ###   ########.fr        #
+#    Updated: 2015/03/09 18:31:14 by sle-guil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS_DIR = ./srcs/
 LIBFT = ./libft/libft.a
 
 SRCS_NAME =	main.c		print_prompt.c	parse.c		interpreteur.c \
-			builtins.c	runcmd.c		history.c	copy_env.c
+			builtins.c	runcmd.c		history.c	copy_env.c \
+			er_notfound.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/07 13:15:32 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/09 18:30:08 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,14 @@ int		interpreter(char **env);
 char	**parse(char *cmd);
 
 /*!
- *	@name : Execution
- *	@brief : managment of the execution environment
+ *	@name :		Execution
+ *	@brief :	managment of the execution environment
+ *				and error management
  */
 int		builtins(char const *cmd, char **env);
 void	runcmd(char const *cmd, char **env);
+
+void	er_notfound(char const *cmd);
 
 /*!
  *	History management
