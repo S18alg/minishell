@@ -18,6 +18,9 @@
  *	@param : A string (can be NULL) and an action defined in minishell.h
  *	@return : NULL if the function is called to save a new entry.
  *				else, it returns the ligne pointed by indice.
+ *
+ *	H_SAVE :		Copy the string in line into a new element.
+ *	H_RESET :		Set the indice ptr to the begining of lst.
  */
 char	*history(char const *line, int action)
 {
