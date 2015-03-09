@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/09 18:30:08 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/09 19:06:45 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@
  *	@brief : Print information to users
  */
 void	print_prompt(void);
-char	**copy_env(char **env);
+char	**env_cp(char **env);
+
+char	*env_getpath(char const **env);
+char	*env_getpwd(char const **env);
 
 /*!
  *	@name : Command parsing
