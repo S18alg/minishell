@@ -27,19 +27,22 @@
 # include "libft.h"
 
 /*!
- *	User interface
+ *	@name : User interface
+ *	@brief : Print information to users
  */
 void	print_prompt(void);
 char	**copy_env(char **env);
 
 /*!
- *	Cmd parsing
+ *	@name : Command parsing
+ *	@brief : Parse a command so ft_strsplit(cmd, ' ') can be used in execve
  */
 int		interpreter(char **env);
 char	**parse(char *cmd);
 
 /*!
- *	Execution
+ *	@name : Execution
+ *	@brief : managment of the execution environment
  */
 int		builtins(char const *cmd, char **env);
 void	runcmd(char const *cmd, char **env);
