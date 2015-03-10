@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/10 14:09:58 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/10 17:29:57 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 void	print_prompt(void);
 char	**env_cp(char **env);
 
-char	*env_getpath(char const **env);
-char	*env_getpwd(char const **env);
+char	*getenv(char **env, char *name);
+char	*get_cpyenv(char **env, char *name);
 
 /*!
  *	@name : Command parsing
