@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/09 19:05:12 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/10 14:45:30 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 /*!
  *	@name:	runcmd
  *	@brief:	This function run the cmd into fork after getting the rigth path
+ *
+ *	Note about "..." management :
+ *		I could manage this type of argument by spliting the " caracter
+ *		and then subsplit odd number with ' '
  */
 static char	**st_initopt(char const *cmd, char *dirpath)
 {

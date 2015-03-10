@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:03:01 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/09 14:22:35 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/10 14:41:34 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 int		builtins(char const *cmd, char **env)
 {
 	(void)env;
-	if (!ft_strcmp(cmd, "exit"))
+	if (!ft_strncmp(cmd, "exit", 4))
 		exit(0);
+	/*else if (!ft_strncmp(cmd, "env", 3))
+		bi_env(env);
+	else if (!ft_strncmp(cmd, "cd", 2))
+		bi_cd(env, cmd);*/
 	return (1);
 }
