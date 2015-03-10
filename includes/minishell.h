@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/09 19:06:45 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/10 14:09:58 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ int		builtins(char const *cmd, char **env);
 void	runcmd(char const *cmd, char **env);
 
 void	er_notfound(char const *cmd);
+
+/*!
+ *	@name : 	Builtins function
+ *	@brief :	This function are intergrated to the minishell
+ */
+int		bi_env(char *env);
 
 /*!
  *	History management
