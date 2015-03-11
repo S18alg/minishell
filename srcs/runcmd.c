@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/10 14:45:30 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/11 16:57:39 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ static char	**st_initopt(char const *cmd, char *dirpath)
 	if (!dirpath)
 		return (NULL);
 	// Need to manage "string"
-	path = get_pathcmd(cmd, dirpath);
+	path = parse_path(dirpath, cmd);
+	ft_putendl(path);
 	new = ft_strsplit(cmd, ' ');
+	free(*new);
+	*new = path;
 	free(dirpath);
 	return (new);
 }
@@ -54,10 +57,9 @@ static void	st_free(char **cmd)
 void		runcmd(char const *cmd, char **env)
 {
 	char	**opt;
-	char	*path;
 	pid_t	father;
 
-	opt = st_initopt(cmd, env_getpath(env));
+	opt = st_initopt(cmd, getenv_cpy(env, "PATH"));
 	father = fork();
 	if (!father)
 		if (opt)
