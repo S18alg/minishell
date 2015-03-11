@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/11 17:18:44 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/11 18:05:55 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	er_notfound(char const *cmd);
  *	@brief :	This function are intergrated to the minishell
  */
 int		bi_env(char **env);
+int		bi_unsetenv(char **env, char *var);
 
 /*!
  *	History management
