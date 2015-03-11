@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/10 17:29:57 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/11 17:18:44 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 void	print_prompt(void);
 char	**env_cp(char **env);
 
-char	*getenv(char **env, char *name);
-char	*get_cpyenv(char **env, char *name);
+char	*getenv_p(char **env, char *name);
+char	*getenv_cpy(char **env, char *name);
 
 /*!
  *	@name : Command parsing
@@ -42,7 +42,9 @@ char	*get_cpyenv(char **env, char *name);
  */
 int		interpreter(char **env);
 char	**parse(char *cmd);
+char	*parse_path(char const *path, char const *cmd);
 
+int		testpath(char *path);
 /*!
  *	@name :		Execution
  *	@brief :	managment of the execution environment
@@ -57,7 +59,7 @@ void	er_notfound(char const *cmd);
  *	@name : 	Builtins function
  *	@brief :	This function are intergrated to the minishell
  */
-int		bi_env(char *env);
+int		bi_env(char **env);
 
 /*!
  *	History management
