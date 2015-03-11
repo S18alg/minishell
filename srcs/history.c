@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/05 17:43:17 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/05 18:41:21 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/11 17:47:40 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@
  *	H_SAVE :		Copy the string in line into a new element.
  *	H_RESET :		Set the indice ptr to the begining of lst.
  */
+
+int		st_testempty(char const *s)
+{
+	while (*s)
+	{
+		if (!ft_isspace(*s))
+			return (1);
+		s++;
+	}
+	return (0);
+}
+
 char	*history(char const *line, int action)
 {
 	static t_list	*lst = NULL;
@@ -29,8 +41,8 @@ char	*history(char const *line, int action)
 	char			*ret;
 
 	ret = NULL;
-	if (action == H_SAVE)
-		ft_lstadd(&lst, ft_lstnew(line, ft_strlen(line) + 1));
+	if (action == H_SAVE && st_testempty(line))
+		ft_lstadd(&lst, ft_lstnew(&line, sizeof(char *)));
 	if (action == H_RESET || action == H_SAVE)
 		indice = lst;
 	return (ret);
