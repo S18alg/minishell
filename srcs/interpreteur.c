@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/10 14:06:12 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/11 17:59:23 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,27 @@ static int	st_isbuiltins(char const *cmd)
 	int		ret;
 
 	ret = 0;
-	if (!ft_strcmp(cmd, "exit"))
+	if (!ft_strncmp(cmd, "exit", 4))
+		ret = 1;
+	if (!ft_strncmp(cmd, "env", 3))
 		ret = 1;
 	return (ret);
 }
+
 int		interpreter(char **env)
 {
 	char	*line;
 	char	**command;
+	char	**tmp;
 	int		ret;
 
 	ret = 1;
 	line = NULL;
 	if ((ret = get_next_line(0, &line)) > 0)
 	{
-		history(line, H_SAVE);
 		command = parse(line);
+		history(line, H_SAVE);
+		tmp = command;
 		while (command && *command)
 		{
 			if (st_isbuiltins(*command))
@@ -47,7 +52,7 @@ int		interpreter(char **env)
 			free(*command);
 			command++;
 		}
-		//free(command);
+		free(tmp);
 	}
 	return (ret);
 }
