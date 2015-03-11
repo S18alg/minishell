@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:45:50 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/09 13:25:19 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/11 17:39:50 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,16 @@ static void	st_delspace(char *s)
 	}
 }
 
-char	**parse(char *cmd)
+char		**parse(char *cmd)
 {
 	char	**new;
+	char	*tmp;
 
-	st_delspace(cmd);
-	new = ft_strsplit(cmd, ';');
+	while (*cmd && ft_isspace(*cmd))
+		cmd++;
+	tmp = ft_strdup(cmd);
+	st_delspace(tmp);
+	new = ft_strsplit(tmp, ';');
+	free(tmp);
 	return (new);
 }
