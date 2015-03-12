@@ -6,13 +6,18 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 16:06:51 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/02/24 14:21:52 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/12 15:18:32 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	print_prompt()
+void	print_prompt(char **env)
 {
-	write(1, "$>", 2);
+	while (*env && !strstr(*env, "root"))
+		env++;
+	if (*env)
+		write(1, "#>", 2);
+	else
+		write(1, "$>", 2);
 }
