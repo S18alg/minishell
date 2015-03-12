@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/12 15:24:58 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/12 16:24:22 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int		interpreter(char **env)
 	char	**tmp;
 	int		ret;
 
-	ret = 1;
 	line = NULL;
 	if ((ret = get_next_line(0, &line)) > 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/12 15:37:24 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/12 16:20:50 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ static char	**st_initopt(char const *cmd, char *dirpath)
 	char	**new;
 	char	*path;
 
-	if (!dirpath)
-		return (NULL);
-	// Need to manage "..."
-	path = parse_path(dirpath, cmd);
 	new = ft_strsplit(cmd, ' ');
+	if (testpath(*new) >= 8)
+		return (new);
+	path = parse_path(dirpath, cmd);
 	free(*new);
 	*new = path;
 	free(dirpath);
