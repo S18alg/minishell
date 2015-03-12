@@ -15,15 +15,15 @@
 int		main(int ac, char **av, char **env)
 {
 	int		i;
-	//char	**loc_env;
+	char	**loc_env;
 
 	(void)av;
-	//loc_env = copy_env(env);
+	loc_env = env_cp(env);
 	i = 1;
 	if (ac == 1)
 	{
 		print_prompt();
-		while (interpreter(env) > 0)
+		while (interpreter(loc_env) > 0)
 			print_prompt();
 	}
 	else

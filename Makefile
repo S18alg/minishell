@@ -26,7 +26,7 @@ SRCS_NAME =	main.c		print_prompt.c	parse.c		interpreteur.c \
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS = $(SRCS:.c=.o)
 
-CC = clang
+CC = clang-3.5
 C_FLAG = -Wall -Wextra -Werror -pipe
 
 ifeq ($(DEBUG), yes)

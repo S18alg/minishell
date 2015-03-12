@@ -12,17 +12,14 @@
 
 #include "minishell.h"
 
-static size_t	st_len(char **len)
+static size_t	st_len(char **env)
 {
 	size_t	ret;
 
 	ret = 0;
-	while (len && *len)
-	{
-		len++;
+	while (env + ret && env[ret])
 		ret++;
-	}
-	return (ret);
+	return (ret + 1);
 }
 
 char			**env_cp(char **env)
@@ -31,7 +28,7 @@ char			**env_cp(char **env)
 	size_t	i;
 
 	i = 0;
-	new = malloc(sizeof(char*) * st_len(env) + 1);
+	new = malloc(sizeof(char*) * st_len(env));
 	while (env + i && env[i])
 	{
 		new[i] = ft_strdup(env[i]);
