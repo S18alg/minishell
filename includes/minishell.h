@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/11 18:05:55 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/12 15:48:05 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
  *	@name : User interface
  *	@brief : Print information to users
  */
-void	print_prompt(void);
+void	print_prompt(char **env);
 char	**env_cp(char **env);
 
 char	*getenv_p(char **env, char *name);
@@ -44,7 +44,7 @@ int		interpreter(char **env);
 char	**parse(char *cmd);
 char	*parse_path(char const *path, char const *cmd);
 
-int		testpath(char *path);
+int		testpath(char const *path);
 /*!
  *	@name :		Execution
  *	@brief :	managment of the execution environment

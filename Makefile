@@ -6,7 +6,7 @@
 #    By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/05 11:53:15 by sle-guil          #+#    #+#              #
-#    Updated: 2015/03/11 18:06:21 by sle-guil         ###   ########.fr        #
+#    Updated: 2015/03/12 12:43:31 by sle-guil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS_NAME =	main.c		print_prompt.c	parse.c		interpreteur.c \
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS = $(SRCS:.c=.o)
 
-CC = clang-3.5
+CC = clang
 C_FLAG = -Wall -Wextra -Werror -pipe
 
 ifeq ($(DEBUG), yes)

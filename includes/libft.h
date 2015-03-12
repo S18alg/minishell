@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libc.h                                             :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 13:12:39 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/02/21 18:14:56 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/12 15:46:57 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,9 @@ char			*ft_strnew(size_t size);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strmerge(char *s1, char *s2);
-char			*ft_strmerge_buff(char *s, char *buffer);
+char			*ft_strmerge_buff(char *s, char const *buffer);
 char			**ft_strsplit(char const *s, char c);
+t_list			*ft_strlsplit(char const *s, int c);
 void			ft_strdel(char **str);
 
 void			ft_striter(char *s, void (*f)(char*));
@@ -168,6 +169,8 @@ void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 
 void			ft_lstadd(t_list **alst, t_list *new);
+void			ft_lstaddend(t_list **lst, t_list *elem);
+
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 
