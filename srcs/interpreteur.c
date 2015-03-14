@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/12 16:24:22 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/14 13:49:00 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	st_isbuiltins(char const *cmd)
 	return (ret);
 }
 
-int		interpreter(char **env)
+int			interpreter(char **env)
 {
 	char	*line;
 	char	**command;

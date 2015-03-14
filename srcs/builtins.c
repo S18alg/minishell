@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:03:01 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/12 16:43:07 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/14 13:47:57 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	st_exit(char const *arg)
 	exit((char)ret);
 }
 
-int		builtins(char const *cmd, char **env)
+int			builtins(char const *cmd, char **env)
 {
 	(void)env;
 	if (!ft_strncmp(cmd, "exit", 4))

@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 18:05:22 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/11 18:05:24 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/14 13:49:23 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	**st_getlast(char **env)
 	return (env);
 }
 
-int		bi_unsetenv(char **env, char *var)
+int			bi_unsetenv(char **env, char *var)
 {
 	char	**last;
 	int		len;
