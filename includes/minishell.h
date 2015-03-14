@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/12 15:48:05 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/14 15:12:28 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	er_notfound(char const *cmd);
  *	@name : 	Builtins function
  *	@brief :	This function are intergrated to the minishell
  */
+void	bi_exit(char const *arg);
 int		bi_env(char **env);
 int		bi_unsetenv(char **env, char *var);
 

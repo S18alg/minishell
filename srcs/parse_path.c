@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 16:14:50 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/12 15:46:00 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/14 14:26:58 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,6 @@ static char	*st_free(char **t, int i)
 	return (ret);
 }
 
-static char	**st_initdir(char const *path, char const *cmd)
-{
-	if (*cmd == '/' || *cmd == '.')
-		return (ft_strsplit("", ':'));
-	else
-		return (ft_strsplit(path, ':'));
-}
-
 static char	*st_forge(char const *path, char const *cmd)
 {
 	char	*new;
@@ -53,7 +45,7 @@ char		*parse_path(char const *path, char const *cmd)
 	int		i;
 
 	i = 0;
-	dir = st_initdir(path, cmd);
+	dir = ft_strsplit(path, ':');
 	tmp = ft_strcdup(cmd, ' ');
 	while (dir[i])
 	{
@@ -67,6 +59,6 @@ char		*parse_path(char const *path, char const *cmd)
 	tmp = st_free(dir, i);
 	if (tmp)
 		return (new);
-	free(new);
+	//free(new);
 	return (NULL);
 }

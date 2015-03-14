@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/12 16:20:50 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/14 15:51:27 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@
  *		I could manage this type of argument by spliting the " caracter
  *		and then subsplit odd number with ' '
  */
+static void	st_free(char **cmd)
+{
+	size_t	i;
+
+	i = 0;
+	while (cmd && cmd[i])
+	{
+		free(cmd[i]);
+		i++;
+	}
+	free(cmd);
+}
+
 static char	**st_initopt(char const *cmd, char *dirpath)
 {
 	char	**new;
@@ -27,25 +40,23 @@ static char	**st_initopt(char const *cmd, char *dirpath)
 
 	new = ft_strsplit(cmd, ' ');
 	if (testpath(*new) >= 8)
-		return (new);
-	path = parse_path(dirpath, cmd);
-	free(*new);
-	*new = path;
-	free(dirpath);
-	return (new);
-}
-
-static void	st_free(char **cmd)
-{
-	size_t	i;
-
-	i = 0;
-	while (cmd[i])
 	{
-		free(cmd[i]);
-		i++;
+		free(dirpath);
+		return (new);
 	}
-	free(cmd);
+	path = parse_path(dirpath, cmd);
+	free(dirpath);
+	if (path)
+	{
+		free(*new);
+		*new = path;
+	}
+	else
+	{
+		st_free(new);
+		new = NULL;
+	}
+	return (new);
 }
 
 // Thing to add here...
@@ -60,10 +71,12 @@ void		runcmd(char const *cmd, char **env)
 	opt = st_initopt(cmd, getenv_cpy(env, "PATH"));
 	father = fork();
 	if (!father)
+	{
 		if (opt)
 			execve(*opt, opt, env);
 		else
 			er_notfound(cmd);
+	}
 	else
 	{
 		wait(NULL);

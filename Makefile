@@ -6,7 +6,7 @@
 #    By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/05 11:53:15 by sle-guil          #+#    #+#              #
-#    Updated: 2015/03/12 12:43:31 by sle-guil         ###   ########.fr        #
+#    Updated: 2015/03/14 15:12:07 by sle-guil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT = ./libft/libft.a
 SRCS_NAME =	main.c		print_prompt.c	parse.c		interpreteur.c \
 			builtins.c	runcmd.c		history.c	env_cp.c \
 			getenv_p.c	getenv_cpy.c	testpath.c	er_notfound.c \
-			bi_env.c	unsetenv.c		parse_path.c
+			bi_env.c	bi_exit.c		unsetenv.c	parse_path.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS = $(SRCS:.c=.o)
