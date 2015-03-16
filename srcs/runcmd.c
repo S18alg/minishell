@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/14 15:51:27 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/16 15:52:28 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ void		runcmd(char const *cmd, char **env)
 	{
 		if (opt)
 			execve(*opt, opt, env);
-		else
-			er_notfound(cmd);
+		er_notfound(cmd);
 	}
 	else
 	{

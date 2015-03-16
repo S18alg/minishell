@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/07 12:24:29 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/12 13:48:17 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/16 16:06:24 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	st_len(char **env)
 	ret = 0;
 	while (env[ret])
 		ret++;
-	return (ret + 1);
+	return (ret + 2);
 }
 
 char			**env_cp(char **env)
@@ -35,5 +35,6 @@ char			**env_cp(char **env)
 		i++;
 	}
 	new[i] = NULL;
+	new[i + 1] = NULL;
 	return (new);
 }

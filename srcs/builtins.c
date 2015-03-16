@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:03:01 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/14 14:48:57 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/16 17:20:13 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int			builtins(char const *cmd, char **env)
 {
-	(void)env;
 	if (!ft_strncmp(cmd, "exit", 4))
 		bi_exit(cmd + 5);
 	else if (!ft_strncmp(cmd, "env", 3))
