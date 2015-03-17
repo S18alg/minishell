@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   er_notfound.c                                      :+:      :+:    :+:   */
+/*   script.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/09 18:24:38 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/17 15:31:29 by sle-guil         ###   ########.fr       */
+/*   Created: 2015/03/17 14:02:04 by sle-guil          #+#    #+#             */
+/*   Updated: 2015/03/17 15:00:43 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	er_notfound(char const *cmd)
+char	**script(char const *file, char **env)
 {
-	write(2, "minishell: invalide commande: ", 30);
-	while (*cmd && *cmd != ' ')
-		write(2, cmd++, 1);
-	write(2, "\n", 1);
-	bi_exit("0");
+	int		fd;
+	int		ret;
+	char	**loc_env;
+
+	ret = 1;
+	if (testpath(file) < 8)
+		return (env);
+	fd = open(file, O_RDONLY);
+	loc_env = env_cp(env);
+	while (ret)
+	{
+		ret = interpreter(env, fd);
+		loc_env = env_refresh(loc_env);
+	}
+	close(fd);
+	env_free(env);
+	return (loc_env);
 }

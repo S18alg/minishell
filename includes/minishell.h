@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/14 15:12:28 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/17 14:27:54 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
  */
 void	print_prompt(char **env);
 char	**env_cp(char **env);
+char	**env_refresh(char **env);
+void	env_free(char **env);
 
 char	*getenv_p(char **env, char *name);
 char	*getenv_cpy(char **env, char *name);
@@ -40,7 +42,8 @@ char	*getenv_cpy(char **env, char *name);
  *	@name : Command parsing
  *	@brief : Parse a command so ft_strsplit(cmd, ' ') can be used in execve
  */
-int		interpreter(char **env);
+char	**script(char const *file, char **env);
+int		interpreter(char **env, int fd);
 char	**parse(char *cmd);
 char	*parse_path(char const *path, char const *cmd);
 
