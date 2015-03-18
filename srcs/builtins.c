@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:03:01 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/18 15:18:09 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/18 15:48:53 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			builtins(char const *cmd, char **env)
 	else if (!ft_strncmp(cmd, "setenv", 6))
 		return (st_setenv(cmd, env));
 	else if (!ft_strncmp(cmd, "unsetenv", 8))
-		bi_unsetenv(env, ft_strchr(cmd, ' ') + 1);
+		return (bi_unsetenv(env, ft_strchr(cmd, ' ') + 1));
 	/*else if (!ft_strncmp(cmd, "cd", 2))
 		bi_cd(env, cmd);*/
 	return (1);
