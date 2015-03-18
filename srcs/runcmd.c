@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/16 15:52:28 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/18 16:49:34 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static char	**st_initopt(char const *cmd, char *dirpath)
 		free(dirpath);
 		return (new);
 	}
+	if (!dirpath)
+		return (NULL);
 	path = parse_path(dirpath, cmd);
 	free(dirpath);
 	if (path)
