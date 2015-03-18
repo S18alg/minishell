@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:27:50 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/18 15:33:47 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/18 15:47:18 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int			bi_setenv(char **env, char const *var, int overwrite)
 		else
 		{
 			free(new);
+			ft_putendl_fd("Value already exist, use -i to over write", 2);
 			return (-1);
 		}
 	}
