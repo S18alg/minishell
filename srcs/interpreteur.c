@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/17 14:00:11 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/18 15:19:49 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static int	st_isbuiltins(char const *cmd)
 	if (!ft_strncmp(cmd, "exit", 4))
 		ret = 1;
 	if (!ft_strncmp(cmd, "env", 3))
+		ret = 1;
+	if (!ft_strncmp(cmd, "setenv", 6))
 		ret = 1;
 	if (!ft_strncmp(cmd, "unsetenv", 8))
 		ret = 1;
