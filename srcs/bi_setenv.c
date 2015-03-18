@@ -6,20 +6,51 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:27:50 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/17 15:53:37 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/18 15:33:47 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int		bi_setenv(char **env, char *var, int owrite)
+static char	*st_init(char const *s)
 {
 	char	*new;
-	char	**tmp
+	char	*tmp;
 
-	tmp = ft_strsplit(var); 
-	if (!tmp[0] || !tmp[1] || tmp[2])
-		return (st_error_arg());
-	while (env[i])
+	new = ft_strdup(s);
+	tmp = ft_strchr(new, ' ');
+	if (!tmp || tmp != ft_strrchr(new, ' '))
+	{
+		ft_putendl_fd("setenv : incorrect number of arg", 2);
+		free(new);
+		return (NULL);
+	}
+	*tmp = '=';
+	return (new);
+}
+
+int			bi_setenv(char **env, char const *var, int overwrite)
+{
+	char	*new;
+	int		len;
+	int		i;
+
+	i = 0;
+	if (!var || !(*var) || !(new = st_init(var)))
+		return (-1);
+	len = ft_strlen_unt_c(new, '=');
+	while (env[i] && ft_strncmp(new, env[i], len))
 		i++;
+	if (env[i])
+	{
+		if (overwrite)
+			free(env[i]);
+		else
+		{
+			free(new);
+			return (-1);
+		}
+	}
+	env[i] = new;
+	return (0);
 }
