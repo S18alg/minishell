@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/17 14:27:54 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/18 15:18:44 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	er_notfound(char const *cmd);
  */
 void	bi_exit(char const *arg);
 int		bi_env(char **env);
+int		bi_setenv(char **env, char const *var, int overwrite);
 int		bi_unsetenv(char **env, char *var);
 
 /*!
