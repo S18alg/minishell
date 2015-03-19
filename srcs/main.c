@@ -12,6 +12,16 @@
 
 #include "minishell.h"
 
+static void	st_upenv(char **env)
+{
+	char	*tmp;
+
+	while (*env && !ft_strncmp(*env, "SHLVL", 5))
+		env++;
+	if ((*env && tmp = ft_strchr(*env, '=')))
+		*(tmp + 1) += 1;
+}
+
 int		main(int ac, char **av, char **env)
 {
 	char	**loc_env;
@@ -19,6 +29,7 @@ int		main(int ac, char **av, char **env)
 
 	i = 1;
 	loc_env = env_cp(env);
+	st_upenv(loc_env);
 	if (ac == 1)
 	{
 		print_prompt(env);
