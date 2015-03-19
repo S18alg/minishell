@@ -23,7 +23,7 @@ char	*getenv_cpy(char **env, char *name)
 	size_t	len;
 
 	len = ft_strlen(name);
-	while (env && *env)
+	while (*env)
 	{
 		if (!ft_strncmp(*env, name, len))
 		{
