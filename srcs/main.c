@@ -16,10 +16,10 @@ static void	st_upenv(char **env)
 {
 	char	*tmp;
 
-	while (*env && !ft_strncmp(*env, "SHLVL", 5))
+	while (*env && ft_strncmp(*env, "SHLVL", 5))
 		env++;
-	if ((*env && tmp = ft_strchr(*env, '=')))
-		*(tmp + 1) += 1;
+	if ((*env && (tmp = ft_strchr(*env, '='))))
+		tmp[1] = tmp[1] + 1;
 }
 
 int		main(int ac, char **av, char **env)
