@@ -43,7 +43,7 @@ int			builtins(char const *cmd, char **env)
 	else if (!ft_strncmp(cmd, "setenv", 6))
 		return (st_setenv(cmd, env));
 	else if (!ft_strncmp(cmd, "unsetenv", 8))
-		return (bi_unsetenv(env, ft_strchr(cmd, ' ') + 1));
+		return (bi_unsetenv(env, ft_strchr(cmd, ' ')));
 	else if (!ft_strncmp(cmd, "history", 7))
 		return ((int)history(NULL, H_PRINT));
 	/*else if (!ft_strncmp(cmd, "cd", 2))

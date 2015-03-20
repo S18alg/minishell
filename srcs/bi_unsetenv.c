@@ -26,8 +26,9 @@ int			bi_unsetenv(char **env, char *var)
 	char	**last;
 	int		len;
 
-	if (!*env)
+	if (!*env || !var || !*var)
 		return (-1);
+	var++;
 	len = ft_strlen(var);
 	last = st_getlast(env);
 	while (ft_strncmp(*env, var, len))
