@@ -67,6 +67,7 @@ int		bi_env(char **env, char const *arg);
 int		bi_setenv(char **env, char const *var, int overwrite);
 int		bi_unsetenv(char **env, char *var);
 
+int		bi_history_print(t_list *lst);
 /*!
  *	History management
  *		Macro :
@@ -80,6 +81,7 @@ int		bi_unsetenv(char **env, char *var);
 # define H_UP		4
 # define H_DOWN		8
 # define H_SEARCH	16
+# define H_PRINT	32
 
 char	*history(char const *line, int action);
 

@@ -23,6 +23,7 @@ SRCS_NAME =	main.c		print_prompt.c	parse.c		interpreteur.c	\
 			getenv_p.c	getenv_cpy.c	testpath.c	er_notfound.c	\
 			bi_env.c	parse_path.c	bi_exit.c	bi_unsetenv.c	\
 			env_free.c	env_refresh.c	script.c	bi_setenv.c		\
+			bi_history_print.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS = $(SRCS:.c=.o)
