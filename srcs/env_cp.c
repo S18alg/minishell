@@ -17,7 +17,7 @@ static size_t	st_len(char **env)
 	size_t	ret;
 
 	ret = 0;
-	while (env[ret])
+	while (env && env[ret])
 		ret++;
 	return (ret + 2);
 }
@@ -29,7 +29,7 @@ char			**env_cp(char **env)
 
 	i = 0;
 	new = malloc(sizeof(char *) * st_len(env));
-	while (env[i])
+	while (env && env[i])
 	{
 		new[i] = ft_strdup(env[i]);
 		i++;
