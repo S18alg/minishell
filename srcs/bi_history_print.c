@@ -1,6 +1,10 @@
 
 #include "minishell.h"
 
+/*!
+ *	@name : bi_history_print
+ *	@brief : print the content of history, return the number of commande.
+ */
 int		bi_history_print(t_list *lst)
 {
 	int		i;

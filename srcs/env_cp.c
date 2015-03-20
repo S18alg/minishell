@@ -12,6 +12,11 @@
 
 #include "minishell.h"
 
+/*!
+ *	@name : env_cp
+ *	@brief : 	Return a fresh copy of the env sent.
+ *				if the env is NULL, then copy an empty env
+ */
 static size_t	st_len(char **env)
 {
 	size_t	ret;
