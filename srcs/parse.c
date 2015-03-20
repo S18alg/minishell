@@ -35,6 +35,8 @@ static void	st_delspace(char *s)
 			*s = ' ';
 		if (ft_isspace(*s) && (ft_isspace(*(s + 1)) || !*(s + 1)))
 			st_iter(s);
+		else if (*s == ';' && ft_isspace(*(s + 1)))
+			st_iter(s + 1);
 		else
 			s++;
 	}
