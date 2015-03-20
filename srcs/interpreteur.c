@@ -30,6 +30,8 @@ static int	st_isbuiltins(char const *cmd)
 		ret = 1;
 	if (!ft_strncmp(cmd, "unsetenv", 8))
 		ret = 1;
+	if (!ft_strncmp(cmd, "history", 7))
+		ret = 1;
 	return (ret);
 }
 

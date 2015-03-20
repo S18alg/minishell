@@ -19,8 +19,9 @@
  *	@return : NULL if the function is called to save a new entry.
  *				else, it returns the ligne pointed by indice.
  *
- *	H_SAVE :		Copy the string in line into a new element.
- *	H_RESET :		Set the indice ptr to the begining of lst.
+ *	H_SAVE		Copy the string in line into a new element.
+ *	H_RESET		Set the indice ptr to the begining of lst.
+ *	H_PRINT		Print current history.
  */
 
 int		st_testempty(char const *s)
@@ -45,5 +46,7 @@ char	*history(char const *line, int action)
 		ft_lstadd(&lst, ft_lstnew(&line, sizeof(char *)));
 	if (action == H_RESET || action == H_SAVE)
 		indice = lst;
+	if (action == H_PRINT)
+		bi_history_print(lst);
 	return (ret);
 }
