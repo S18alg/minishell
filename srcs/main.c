@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:47:56 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/17 14:27:01 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/21 14:19:10 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	st_upenv(char **env)
 		tmp[1] = tmp[1] + 1;
 }
 
-int		main(int ac, char **av, char **env)
+int			main(int ac, char **av, char **env)
 {
 	char	**loc_env;
 	int		i;

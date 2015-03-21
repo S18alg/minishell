@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 13:58:45 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/18 19:06:22 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/21 14:17:39 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /*!
  *	@name :		bi_env
- *	@brief :	Print the environment variables or execute a commande with custom env.
+ *	@brief :	Execute command in custom env.
  */
-static void	st_print(char **env)
+static void			st_print(char **env)
 {
 	while (*env)
 	{
@@ -25,7 +25,7 @@ static void	st_print(char **env)
 	}
 }
 
-static int	st_over(char const *s)
+static int			st_over(char const *s)
 {
 	if (!s)
 		return (0);
@@ -46,7 +46,7 @@ static char const	*st_init(char ***env, char const *cmd)
 {
 	char	*tmp;
 	char	*c;
-	
+
 	while (cmd && ft_strchr(cmd, '=') && (tmp = ft_strcdup(cmd, ' ')))
 	{
 		if ((c = ft_strchr(tmp, '=')))
@@ -61,7 +61,7 @@ static char const	*st_init(char ***env, char const *cmd)
 	return (cmd);
 }
 
-int			bi_env(char **env, char const *arg)
+int					bi_env(char **env, char const *arg)
 {
 	char const	*cmd;
 	int			ret;
