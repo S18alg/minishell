@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 14:19:38 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 19:55:26 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/23 20:13:12 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ void		bi_cd(char **env, char *cmd)
 		ft_putendl(cmd);
 		return ;
 	}
-	st_setold(env);
-	st_setpwd(env);
+	else
+	{
+		st_setold(env);
+		st_setpwd(env);
+	}
 	free(cmd);
 }
