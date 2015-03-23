@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:03:01 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/18 18:45:39 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/23 15:55:58 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			builtins(char const *cmd, char **env)
 		return (bi_unsetenv(env, ft_strchr(cmd, ' ')));
 	else if (!ft_strncmp(cmd, "history", 7))
 		return ((int)history(NULL, H_PRINT));
-	/*else if (!ft_strncmp(cmd, "cd", 2))
-		bi_cd(env, cmd);*/
+	else if (!ft_strncmp(cmd, "cd", 2))
+		bi_cd(env, ft_strchr(cmd, ' '));
 	return (1);
 }

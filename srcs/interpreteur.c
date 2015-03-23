@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/18 15:19:49 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/23 15:55:16 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static int	st_isbuiltins(char const *cmd)
 	if (!ft_strncmp(cmd, "unsetenv", 8))
 		ret = 1;
 	if (!ft_strncmp(cmd, "history", 7))
+		ret = 1;
+	if (!ft_strncmp(cmd, "cd", 2))
 		ret = 1;
 	return (ret);
 }
