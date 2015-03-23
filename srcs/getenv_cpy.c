@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 17:08:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/11 15:34:56 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/23 14:38:24 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  *	@brief :	get and return a new allocated string contening the value
  *				of a ENV variable.
  */
-char	*getenv_cpy(char **env, char *name)
+char	*getenv_cpy(char **env, char const *name)
 {
 	char	*new;
 	size_t	len;
