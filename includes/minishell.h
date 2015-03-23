@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/18 18:45:15 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/23 14:00:39 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	**env_refresh(char **env);
 void	env_free(char **env);
 
 char	*getenv_p(char **env, char *name);
-char	*getenv_cpy(char **env, char *name);
+char	*getenv_cpy(char **env, char const *name);
 
 /*!
  *	@name : Command parsing
