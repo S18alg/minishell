@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:47:56 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/21 14:19:10 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/23 14:25:17 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,21 @@ static void	st_upenv(char **env)
 {
 	char	*tmp;
 
-	while (*env && ft_strncmp(*env, "SHLVL", 5))
-		env++;
-	if ((*env && (tmp = ft_strchr(*env, '='))))
+	tmp = getenv_p(env, "SHLVL=");
+	if (tmp && (tmp = ft_strchr(tmp, '=')))
 		tmp[1] = tmp[1] + 1;
+	tmp = getenv_cpy(env, "_=");
+
+	while (*env && ft_strncmp(*env, "SHELL=", 6))
+		env++;
+	if (*env && tmp)
+	{
+		free(*env);
+		*env = ft_strjoin("SHELL=", tmp);
+		free(tmp);
+	}
+	else if (tmp)
+		free(tmp);
 }
 
 int			main(int ac, char **av, char **env)
