@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:47:56 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 19:57:44 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 15:51:18 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int			main(int ac, char **av, char **env)
 	int		i;
 
 	i = 1;
+	signal(SIGINT, SIG_IGN);
 	loc_env = env_cp(env);
 	st_upenv(loc_env);
 	if (ac == 1)

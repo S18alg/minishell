@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 20:04:05 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 15:50:12 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,14 @@ void		runcmd(char const *cmd, char **env)
 	father = fork();
 	if (!father)
 	{
+		signal(SIGINT, SIG_DFL);
 		if (opt)
 			execve(*opt, opt, env);
 		er_notfound(cmd);
 	}
 	else
 	{
+		signal(SIGINT, SIG_IGN);
 		wait(NULL);
 		st_free(opt);
 	}
