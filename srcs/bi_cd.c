@@ -6,11 +6,21 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 14:19:38 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/24 13:08:25 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 15:24:54 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static char	*st_retvar(char **env, char *var)
+{
+	char	*ret;
+
+	ret = getenv_cpy(env, var);
+	if (!ret)
+		ret = ft_strjoin(var, " is not defined");
+	return (ret);
+}
 
 static char	*st_init(char **env, char *s)
 {
@@ -20,15 +30,20 @@ static char	*st_init(char **env, char *s)
 	if (s)
 		s++;
 	else
-		return (getenv_cpy(env, "HOME"));
+		return (st_retvar(env, "HOME"));
 	if (*s == '~')
 	{
 		tmp = getenv_cpy(env, "HOME");
-		ret = ft_strjoin(tmp, s + 1);
-		free(tmp);
+		if (tmp)
+		{
+			ret = ft_strjoin(tmp, s + 1);
+			free(tmp);
+		}
+		else
+			ret = ft_strdup("HOME is not defined");
 	}
 	else if (*s == '-' && !*(s + 1))
-		ft_putendl((ret = getenv_cpy(env, "OLDPWD")));
+		ft_putendl((ret = st_retvar(env, "OLDPWD")));
 	else
 		ret = ft_strdup(s);
 	return (ret);
