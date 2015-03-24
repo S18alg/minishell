@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 16:01:24 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 13:28:06 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	bi_exit(char const *arg);
 int		bi_env(char **env, char const *arg);
 int		bi_setenv(char **env, char const *var, int overwrite);
 int		bi_unsetenv(char **env, char *var);
-void	bi_cd(char **env, char *var);
+int		bi_cd(char **env, char *var);
 
 int		bi_history_print(t_list *lst);
 /*!
@@ -84,6 +84,6 @@ int		bi_history_print(t_list *lst);
 # define H_SEARCH	16
 # define H_PRINT	32
 
-char	*history(char const *line, int action);
+char	*history(char *line, int action);
 
 #endif
