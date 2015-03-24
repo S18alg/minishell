@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 14:19:38 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 20:13:12 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 13:08:25 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,15 @@ static void	st_setpwd(char **env)
 	free(buff);
 }
 
-void		bi_cd(char **env, char *cmd)
+int			bi_cd(char **env, char *cmd)
 {
 	cmd = st_init(env, cmd);
 	if (chdir(cmd) == -1)
 	{
 		ft_putstr("cd: Directory not found : ");
 		ft_putendl(cmd);
-		return ;
+		free(cmd);
+		return (-1);
 	}
 	else
 	{
@@ -81,4 +82,5 @@ void		bi_cd(char **env, char *cmd)
 		st_setpwd(env);
 	}
 	free(cmd);
+	return (0);
 }
