@@ -6,11 +6,11 @@
 #    By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/05 11:53:15 by sle-guil          #+#    #+#              #
-#    Updated: 2015/03/23 16:02:08 by sle-guil         ###   ########.fr        #
+#    Updated: 2015/04/03 17:03:36 by sle-guil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_minishell1
+NAME = ft_minishell2
 LOGIN_AUTEUR = sle_guil
 DEBUG = yes
 
