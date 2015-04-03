@@ -1,6 +1,6 @@
 while [ 1 ]
 do
 	clear;
-	leaks 32828;
+	leaks 11065;
 	sleep 1;
 done
