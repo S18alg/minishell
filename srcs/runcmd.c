@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/24 15:50:12 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/06 14:49:22 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,18 @@ static char	**st_initopt(char const *cmd, char *dirpath)
 	return (new);
 }
 
+static void	st_upenv(char *cmd, char **env)
+{
+	char	*tmp;
+
+	while (*env && ft_strncmp(*env, "_=", 2))
+		env++;
+	if (*env)
+		free(*env);
+	tmp = ft_strjoin("_=", cmd);
+	*env = tmp;
+}
+
 void		runcmd(char const *cmd, char **env)
 {
 	char	**opt;
@@ -77,7 +89,7 @@ void		runcmd(char const *cmd, char **env)
 	}
 	else
 	{
-		signal(SIGINT, SIG_IGN);
+		st_upenv(*opt, env);
 		wait(NULL);
 		st_free(opt);
 	}
