@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 18:05:22 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/18 16:47:21 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/06 16:24:29 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,19 @@ static char	**st_getlast(char **env)
 int			bi_unsetenv(char **env, char *var)
 {
 	char	**last;
-	int		len;
 
 	if (!*env || !var || !*var)
 		return (-1);
 	var++;
-	len = ft_strlen(var);
 	last = st_getlast(env);
-	while (ft_strncmp(*env, var, len))
-		env++;
-	free(*env);
-	*env = *last;
-	*last = NULL;
-	return (0);
+	env = getenv_p(env, var);
+	if (env)
+	{
+		free(*env);
+		*env = *last;
+		*last = NULL;
+		return (0);
+	}
+	ft_putendl("Variable does not exist");
+	return (-1);
 }

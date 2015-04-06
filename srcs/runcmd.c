@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/06 14:49:22 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/06 16:27:25 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ static void	st_upenv(char *cmd, char **env)
 {
 	char	*tmp;
 
-	while (*env && ft_strncmp(*env, "_=", 2))
-		env++;
+	env = getenv_p(env, "_=");
 	if (*env)
 		free(*env);
 	tmp = ft_strjoin("_=", cmd);
@@ -89,7 +88,8 @@ void		runcmd(char const *cmd, char **env)
 	}
 	else
 	{
-		st_upenv(*opt, env);
+		if (opt)
+			st_upenv(*opt, env);
 		wait(NULL);
 		st_free(opt);
 	}

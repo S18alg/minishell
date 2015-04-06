@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 14:19:38 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/06 12:16:17 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/06 15:39:57 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ static void	st_setold(char **env)
 {
 	char	*pwd;
 
-	pwd = getenv_cpy(env, "PWD");
-	while (*env && ft_strncmp(*env, "OLDPWD", 6))
-		env++;
+	pwd = getenv_cpy(env, "PWD=");
+	env = getenv_p(env, "OLDPWD=");
 	if (pwd)
 	{
 		if (*env)
@@ -61,8 +60,7 @@ static void	st_setpwd(char **env)
 
 	buff = malloc(sizeof(char) * 1025);
 	pwd = getcwd(buff, 1024);
-	while (*env && ft_strncmp(*env, "PWD", 3))
-		env++;
+	env = getenv_p(env, "PWD=");
 	if (*env)
 		free(*env);
 	*env = ft_strjoin("PWD=", pwd);
