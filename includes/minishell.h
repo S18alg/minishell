@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/06 15:19:04 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/06 20:05:45 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,25 @@
 # include <signal.h>
 
 # include "libft.h"
+
+
+/*!
+ * 		Alias
+ *	@name:		Alias
+ *	@brief:		Manage aliases in minishell
+ */
+#define AL_ADD		1
+#define AL_PRI		2
+#define AL_DEL		4
+
+typedef struct	s_alias
+{
+	char	*name;
+	char	*value;
+}				t_alias
+
+char	*alias(char *cmd);
+t_list	*manage_alias(char *value[2], int action);
 
 /*!
  *	@name : User interface
