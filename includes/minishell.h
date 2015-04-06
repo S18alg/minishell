@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/24 13:28:06 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/06 15:19:04 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	**env_cp(char **env);
 char	**env_refresh(char **env);
 void	env_free(char **env);
 
-char	*getenv_p(char **env, char *name);
+char	**getenv_p(char **env, char *name);
 char	*getenv_cpy(char **env, char const *name);
 
 /*!
