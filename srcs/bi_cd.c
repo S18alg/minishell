@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 14:19:38 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/03 17:13:03 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/06 12:16:17 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static char	*st_retvar(char **env, char *var)
 static char	*st_init(char **env, char *s)
 {
 	char	*ret;
-	char	*tmp;
 
 	if (s)
 		s++;

@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 15:55:16 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/06 12:53:22 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
  *	@name : interpreter
  *	@brief: This function get a commande typed by the user and execute it
  */
-
 static int	st_isbuiltins(char const *cmd)
 {
 	int		ret;
