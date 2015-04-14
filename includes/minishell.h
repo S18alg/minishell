@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/06 20:05:45 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/14 16:51:33 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct	s_alias
 {
 	char	*name;
 	char	*value;
-}				t_alias
+}				t_alias;
 
 char	*alias(char *cmd);
 t_list	*manage_alias(char *value[2], int action);
@@ -52,7 +52,6 @@ t_list	*manage_alias(char *value[2], int action);
 void	print_prompt(char **env);
 char	**env_cp(char **env);
 char	**env_refresh(char **env);
-void	env_free(char **env);
 
 char	**getenv_p(char **env, char *name);
 char	*getenv_cpy(char **env, char const *name);

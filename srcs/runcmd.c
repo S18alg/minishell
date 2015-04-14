@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/06 16:27:25 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/14 16:42:36 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,6 @@
  *		I could manage this type of argument by spliting the " caracter
  *		and then subsplit odd number with ' '
  */
-static void	st_free(char **cmd)
-{
-	size_t	i;
-
-	i = 0;
-	while (cmd && cmd[i])
-	{
-		free(cmd[i]);
-		i++;
-	}
-	free(cmd);
-}
-
 static char	**st_initopt(char const *cmd, char *dirpath)
 {
 	char	**new;
@@ -55,7 +42,7 @@ static char	**st_initopt(char const *cmd, char *dirpath)
 	}
 	else
 	{
-		st_free(new);
+		ft_freesplit(new);
 		new = NULL;
 	}
 	return (new);
@@ -63,13 +50,10 @@ static char	**st_initopt(char const *cmd, char *dirpath)
 
 static void	st_upenv(char *cmd, char **env)
 {
-	char	*tmp;
-
 	env = getenv_p(env, "_=");
 	if (*env)
 		free(*env);
-	tmp = ft_strjoin("_=", cmd);
-	*env = tmp;
+	*env = ft_strjoin("_=", cmd);
 }
 
 void		runcmd(char const *cmd, char **env)
@@ -91,6 +75,6 @@ void		runcmd(char const *cmd, char **env)
 		if (opt)
 			st_upenv(*opt, env);
 		wait(NULL);
-		st_free(opt);
+		ft_freesplit(opt);
 	}
 }

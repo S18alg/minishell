@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:34:05 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/06 12:53:22 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/14 16:45:47 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,9 @@ int			interpreter(char **env, int fd)
 				builtins(*command, env);
 			else
 				runcmd(*command, env);
-			free(*command);
 			command++;
 		}
-		free(tmp);
+		ft_freesplit(tmp);
 	}
 	return (ret);
 }

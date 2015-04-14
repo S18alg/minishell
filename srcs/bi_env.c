@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 13:58:45 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/24 13:50:52 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/14 16:50:58 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ int					bi_env(char **env, char const *arg)
 		st_print(env);
 	else
 		runcmd(cmd, env);
-	env_free(env);
+	ft_freesplit(env);
 	return (0);
 }

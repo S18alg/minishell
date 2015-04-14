@@ -6,7 +6,7 @@
 #    By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/05 11:53:15 by sle-guil          #+#    #+#              #
-#    Updated: 2015/04/03 17:03:36 by sle-guil         ###   ########.fr        #
+#    Updated: 2015/04/14 16:44:25 by sle-guil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS_NAME =	main.c		print_prompt.c	parse.c		interpreteur.c	\
 			builtins.c	runcmd.c		history.c	env_cp.c		\
 			getenv_p.c	getenv_cpy.c	testpath.c	er_notfound.c	\
 			bi_env.c	parse_path.c	bi_exit.c	bi_unsetenv.c	\
-			env_free.c	env_refresh.c	script.c	bi_setenv.c		\
+			env_refresh.c	script.c	bi_setenv.c		\
 			bi_cd.c		bi_history_print.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_NAME))
