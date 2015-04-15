@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:35:49 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/15 16:05:02 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/15 17:37:47 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,32 @@ static void	st_upenv(char *cmd, char **env)
 		free(*env);
 		*env = ft_strjoin("_=", cmd);
 	}
+}
+
+static int	st_getmask(char const *s)
+{
+	if (!ft_strcmp(s, "&&"))
+		return (M_AND);
+}
+
+static int	st_exec_bin(char const **cmd, char **env)
+{
+	int		ret;
+	pid_t	father;
+
+	while (cmd[i])
+		i++;
+	ret = st_getnext(cmd[i]);
+	if (cmd[i])
+		ft_memdel(cmd + i);
+	father = fork();
+	if (!father)
+	{
+		execve(*cmd, cmd, env);
+		er_notfound(cmd);
+	}
+	else
+		return (st_return(ret, *cmd));
 }
 
 void		runcmd(char const *cmd, char **env)
