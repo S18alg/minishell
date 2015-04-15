@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 16:14:50 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 20:10:47 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/15 15:37:54 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 /*
  * @name :		parse_path
- * @brief :		parse the PATH variable into a char** for each path.
- * 	Possible leaks resolution by adding a free(new) befor the last return
+ * @brief :		Split the path variable and return the final path
  */
 static char	*st_free(char **t, int i)
 {
@@ -42,23 +41,19 @@ char		*parse_path(char const *path, char const *cmd)
 {
 	char	**dir;
 	char	*new;
-	char	*tmp;
 	int		i;
 
 	i = 0;
 	dir = ft_strsplit(path, ':');
-	tmp = ft_strcdup(cmd, ' ');
 	while (dir[i])
 	{
-		new = st_forge(dir[i], tmp);
+		new = st_forge(dir[i], cmd);
 		if (testpath(new) >= 8)
 			break ;
 		free(new);
 		i++;
 	}
-	free(tmp);
-	tmp = st_free(dir, i);
-	if (tmp)
+	if (st_free(dir, i))
 		return (new);
 	return (NULL);
 }

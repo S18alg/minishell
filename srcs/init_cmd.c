@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/15 14:51:44 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/15 15:48:11 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/15 16:02:32 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
  *	@name:		init_cmd
  *	@brief:		read a splited command, initialise all the path and builtins.
  */
-static int	st_isbuiltins(char const *cmd)
-{
-	if (ft_strcmp(cmd, "exit"))
-		return (1);
-}
-
 static int	st_test_file(char **cmd)
 {
 	if (!(TEST_PIPE(*cmd) || TEST_STREAM(*cmd) \
@@ -30,9 +24,9 @@ static int	st_test_file(char **cmd)
 	return (-1);
 }
 
-static char	*st_test_exe(char *cmd, char *path)
+static char	*st_test_exe(char *path, char *cmd)
 {
-	if (st_isbuiltins(cmd) || testpath(cmd))
+	if (is_builtin(cmd) || testpath(cmd))
 		return (NULL);
 	return (parse_path(path, cmd));
 }
@@ -48,7 +42,7 @@ int			init_cmd(char **cmd, char *path)
 	}
 	while (*cmd)
 	{
-		if (TEST_PIPE(*cmd) && tmp = st_test_bin(*(cmd + 1), path))
+		if (TEST_PIPE(*cmd) && tmp = st_test_exe(path, *(cmd + 1)))
 		{
 			free(*(cmd + 1));
 			*(cmd + 1) = tmp;
