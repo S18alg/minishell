@@ -6,12 +6,13 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:03:01 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 15:55:58 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/04/16 14:28:47 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/*
 static int	st_setenv(char const *s, char **env)
 {
 	int		ow;
@@ -33,11 +34,11 @@ static int	st_setenv(char const *s, char **env)
 	}
 	return (bi_setenv(env, s, ow));
 }
+*/
 
-int			builtins(char const *cmd, char **env)
+int			builtins(char const **cmd, char **env)
 {
-	if (!ft_strncmp(cmd, "exit", 4))
-		bi_exit(cmd + 5);
+	/*
 	else if (!ft_strncmp(cmd, "env", 3))
 		bi_env(env, ft_strchr(cmd, ' '));
 	else if (!ft_strncmp(cmd, "setenv", 6))
@@ -48,5 +49,8 @@ int			builtins(char const *cmd, char **env)
 		return ((int)history(NULL, H_PRINT));
 	else if (!ft_strncmp(cmd, "cd", 2))
 		bi_cd(env, ft_strchr(cmd, ' '));
-	return (1);
+	*/
+	if (ft_strcmp(*cmd, "exit"))
+		return (bi_exit(cmd));
+	return (0);
 }

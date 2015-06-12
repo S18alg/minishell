@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/21 15:32:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/16 15:11:46 by sle-guil         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -42,9 +31,6 @@ typedef struct	s_alias
 	char	*value;
 }				t_alias;
 
-char	*alias(char *cmd);
-t_list	*manage_alias(char *value[2], int action);
-
 /*!
  *	@name : User interface
  *	@brief : Print information to users
@@ -60,11 +46,6 @@ char	*getenv_cpy(char **env, char const *name);
  *	@name : Command parsing
  *	@brief : Parse a command so ft_strsplit(cmd, ' ') can be used in execve
  */
-char	**script(char const *file, char **env);
-int		interpreter(char **env, int fd);
-char	**parse(char *cmd);
-char	*parse_path(char const *path, char const *cmd);
-
 int		testpath(char const *path);
 int		init_cmd(t_list *cmd, char *path);
 /*!
