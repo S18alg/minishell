@@ -6,16 +6,12 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/21 14:17:56 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/21 14:18:09 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 16:08:39 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*!
- *	@name : bi_history_print
- *	@brief : print the content of history, return the number of commande.
- */
 int		bi_history_print(t_list *lst)
 {
 	int		i;

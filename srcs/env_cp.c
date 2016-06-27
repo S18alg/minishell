@@ -6,17 +6,12 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/07 12:24:29 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/16 16:06:24 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 16:08:50 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*!
- *	@name : env_cp
- *	@brief : 	Return a fresh copy of the env sent.
- *				if the env is NULL, then copy an empty env
- */
 static size_t	st_len(char **env)
 {
 	size_t	ret;

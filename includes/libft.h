@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 13:12:39 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/14 16:53:38 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/12 15:46:57 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,11 @@ char			*ft_strcdup(const char *s1, char c);
 char			*ft_strnew(size_t size);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strjoin_join(char const **table, char const *patern);
 char			*ft_strmerge(char *s1, char *s2);
 char			*ft_strmerge_buff(char *s, char const *buffer);
 char			**ft_strsplit(char const *s, char c);
 t_list			*ft_strlsplit(char const *s, int c);
 void			ft_strdel(char **str);
-void			ft_freesplit(char **table);
 
 void			ft_striter(char *s, void (*f)(char*));
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -188,6 +186,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 **		Fuck quicksort.
 **	Yes, this have some fucking ugly prototype thanks to the norme...
 */
+
 void			ft_tabsort_bub\
 					(int *tab, size_t i, size_t max, int (*f)(int, int));
 # define SORT_BUB(tab, max, f)		ft_tabsort_bub(tab, 0, max, f)

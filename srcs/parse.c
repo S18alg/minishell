@@ -6,17 +6,11 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 17:45:50 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/11 17:39:50 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 16:09:53 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-/*
- *	@name:	command parser
- *	@brief:	First parser to apply on the user input, del useless space
- *			and split each sub commande ';'
- */
 
 static void	st_iter(char *s)
 {

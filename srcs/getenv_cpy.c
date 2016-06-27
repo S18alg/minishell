@@ -6,17 +6,12 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 17:08:43 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/03/23 14:38:24 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 16:09:09 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*
- *	@name :		get_cpyenv
- *	@brief :	get and return a new allocated string contening the value
- *				of a ENV variable.
- */
 char	*getenv_cpy(char **env, char const *name)
 {
 	char	*new;

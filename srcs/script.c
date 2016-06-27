@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/17 14:02:04 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/14 16:48:51 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/17 15:00:43 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ char	**script(char const *file, char **env)
 		loc_env = env_refresh(loc_env);
 	}
 	close(fd);
-	ft_freesplit(env);
+	env_free(env);
 	return (loc_env);
 }

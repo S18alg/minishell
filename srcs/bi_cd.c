@@ -6,7 +6,7 @@
 /*   By: sle-guil <sle-guil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/10 14:19:38 by sle-guil          #+#    #+#             */
-/*   Updated: 2015/04/06 15:39:57 by sle-guil         ###   ########.fr       */
+/*   Updated: 2015/03/24 15:24:54 by sle-guil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,24 @@ static char	*st_retvar(char **env, char *var)
 static char	*st_init(char **env, char *s)
 {
 	char	*ret;
+	char	*tmp;
 
 	if (s)
 		s++;
 	else
 		return (st_retvar(env, "HOME"));
-	if (*s == '-' && !*(s + 1))
+	if (*s == '~')
+	{
+		tmp = getenv_cpy(env, "HOME");
+		if (tmp)
+		{
+			ret = ft_strjoin(tmp, s + 1);
+			free(tmp);
+		}
+		else
+			ret = ft_strdup("HOME is not defined");
+	}
+	else if (*s == '-' && !*(s + 1))
 		ft_putendl((ret = st_retvar(env, "OLDPWD")));
 	else
 		ret = ft_strdup(s);
@@ -41,8 +53,9 @@ static void	st_setold(char **env)
 {
 	char	*pwd;
 
-	pwd = getenv_cpy(env, "PWD=");
-	env = getenv_p(env, "OLDPWD=");
+	pwd = getenv_cpy(env, "PWD");
+	while (*env && ft_strncmp(*env, "OLDPWD", 6))
+		env++;
 	if (pwd)
 	{
 		if (*env)
@@ -60,7 +73,8 @@ static void	st_setpwd(char **env)
 
 	buff = malloc(sizeof(char) * 1025);
 	pwd = getcwd(buff, 1024);
-	env = getenv_p(env, "PWD=");
+	while (*env && ft_strncmp(*env, "PWD", 3))
+		env++;
 	if (*env)
 		free(*env);
 	*env = ft_strjoin("PWD=", pwd);
